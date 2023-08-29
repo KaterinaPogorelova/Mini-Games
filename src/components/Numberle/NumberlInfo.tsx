@@ -9,7 +9,7 @@ type Props={
 
 export const NumberlInfo=({isShown,close}:Props)=>{
 return(<>{isShown&&<InfoWrapper>
-    <div onClick={()=>close()}><StaticImage src="../images/close.svg" alt="close" width={24} height={24} style={{position:'absolute',top:'10px',right:'15px'}}></StaticImage></div>
+    <CloseBtn onClick={()=>close()}><StaticImage src="../../images/close.svg" alt="close" width={24} height={24}></StaticImage></CloseBtn>
 <InfoTitle>How to play?</InfoTitle>
 <Text>Guess the six-digit number in 5 tries. Each guess must contain 5 digits. Number can't start with "0". The digits in the number may be repeated.</Text>
 <Text>After each guess, the color of the tiles will change to show how close your guess was to the number.</Text>
@@ -49,4 +49,12 @@ margin:0 0 20px;
 `
 const Text=styled.p`
 font-size:16px;
+`
+const CloseBtn=styled.button`
+border:none;
+background:none;
+position:absolute;
+top:10px;
+right:15px;
+zIndex:2;
 `

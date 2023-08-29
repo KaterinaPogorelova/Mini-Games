@@ -1,12 +1,12 @@
-import { Link, type PageProps } from "gatsby"
+import { type PageProps } from "gatsby"
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import { Line } from "../components/Lines";
-import { Keyboard } from "../components/Keyboard";
+import { Line } from "../components/Numberle/Lines";
+import { Keyboard } from "../components/Numberle/Keyboard";
 import { generateNum } from "../gameFuncs/generateNumber";
 import { WinMessage } from "../components/Message";
 import { StaticImage } from "gatsby-plugin-image";
-import { NumberlInfo } from "../components/NumberlInfo";
+import { NumberlInfo } from "../components/Numberle/NumberlInfo";
 
 const Numberle: React.FC<PageProps> = () => {
     const [userNum,setUserNum]=useState<number[]>([])
@@ -42,10 +42,10 @@ const Numberle: React.FC<PageProps> = () => {
 
     return(<PageBody>
     <GameBody>
-        {hasWon!==null&&<WinMessage hasWon={hasWon}></WinMessage>}
+        {hasWon!==null&&<WinMessage hasWon={hasWon} gameLink="/numberle" numberleTargetNum={targetNum}></WinMessage>}
         <NumberlInfo isShown={infoShown} close={()=>setInfoShown(false)}></NumberlInfo>
-        <div onClick={()=>setInfoShown(true)}><StaticImage src="../images/numberInfo.svg" alt="info" width={24} height={24} style={{position:'absolute',top:'10px',right:'15px'}}
-        ></StaticImage></div>
+        <InfoBtn onClick={()=>setInfoShown(true)}><StaticImage src="../images/numberInfo.svg" alt="info" width={24} height={24}
+        ></StaticImage></InfoBtn>
         <Line num={(lineNum===1)?userNum:undefined} colors={(lineNum===2)?matches:undefined}></Line>
         <Line num={(lineNum===2)?userNum:undefined} colors={(lineNum===3)?matches:undefined}></Line>
         <Line num={(lineNum===3)?userNum:undefined} colors={(lineNum===4)?matches:undefined}></Line>
@@ -75,4 +75,11 @@ flex-wrap:wrap;
 @media (max-width:350px){
     padding:40px 15px 15px;
 }
+`
+const InfoBtn=styled.button`
+border:none;
+background:none;
+position:absolute;
+top:10px;
+right:15px;
 `

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import React, { useEffect, useState } from "react"
-import { findMatch } from "../gameFuncs/generateNumber"
+import { findMatch } from "../../gameFuncs/generateNumber"
 
 type Props={
     showAddedNum:(num:number)=>void,

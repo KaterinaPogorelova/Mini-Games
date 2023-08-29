@@ -1,15 +1,19 @@
 import styled from "@emotion/styled"
-import { Link } from "gatsby"
 import React from "react"
 
 type Props={
     hasWon:boolean|null;
+    gameLink:string;
+    numberleTargetNum?:number[];
+    cardGameTries?:number;
 }
 
-export const WinMessage=({hasWon}:Props)=>{
+export const WinMessage=({hasWon,gameLink,numberleTargetNum,cardGameTries}:Props)=>{
     return(<Message>
         <MessageTitle>{hasWon?'You won!':'You lost...'}</MessageTitle>
-        <MessageBtn href="/numberle">Try again</MessageBtn>
+        {hasWon&&gameLink==='/memoryCard'&&<MessageAddInfo>{'You won in '+cardGameTries+' tries'}</MessageAddInfo>}
+        {!hasWon&&gameLink==='/numberle'&&numberleTargetNum&&<MessageAddInfo>{'The target number was '+numberleTargetNum.join('')}</MessageAddInfo>}
+        <MessageBtn href={gameLink}>Try again</MessageBtn>
         <MessageBtn href="/">Go Back</MessageBtn>
     </Message>)
 }
@@ -24,6 +28,7 @@ border-radius:10px;
 padding:20px;
 background:#fff;
 width:200px;
+z-index:4;
 `
 
 const MessageTitle=styled.h3`
@@ -46,4 +51,11 @@ margin-bottom:20px;
     cursor:pointer;
     background:#c9c5c5;
 }
+`
+
+const MessageAddInfo=styled.p`
+text-align:center;
+font-size:20px;
+color:#000;
+margin:20px 0;
 `
