@@ -5,7 +5,10 @@
   "description": "katerina-p-frontender",
   "author": "Katerina Pogorelova",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "jest",
+    "test",
+    "testing"
   ],
   "scripts": {
     "develop": "gatsby develop",
@@ -13,7 +16,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -30,9 +34,19 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.22.15",
+    "@testing-library/jest-dom": "^6.1.3",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.4",
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "babel-jest": "^29.6.4",
+    "babel-preset-gatsby": "^3.12.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.6.4",
+    "jest-environment-jsdom": "^29.6.4",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
   }
 }

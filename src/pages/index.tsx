@@ -21,6 +21,10 @@ const IndexPage: React.FC<PageProps> = () => {
 <StaticImage src='../images/memory-game.png' alt="memoryCards" width={150} height={150}></StaticImage>
 <GameTitle>Memory Card</GameTitle>
 </Game>
+<Game to="/tictactoe">
+<StaticImage src='../images/tictactoe.svg' alt="memoryCards" width={150} height={150}></StaticImage>
+<GameTitle>Tic Tac Toe</GameTitle>
+</Game>
   </Wrapper>
     </main>
   )
