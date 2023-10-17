@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { Pile } from "../components/TicTacToe/Pile";
 import { makeMoveForNoughts, checkForWinner } from "../gameFuncs/AItictactoe";
 import { WinMessage } from "../components/Message";
+import { BackButton } from "../components/BackButton";
 
 const TicTacToe: React.FC<PageProps> = () => {
     const [values, setValues] = useState<(null | 'X' | 'O')[]>([null, null, null, null, null, null, null, null, null])
@@ -40,8 +41,8 @@ const TicTacToe: React.FC<PageProps> = () => {
 
     const setPileValue = (id: number, value: 'X' | 'O') => {
         values.splice(id, 1, value)
-        setValues(values)
         console.log(values)
+        setValues(values)
     }
     const checkHasUserWon = (winner: 'X' | 'O' | 'Tie' | null) => {
         if (winner === 'X') return true
@@ -49,6 +50,7 @@ const TicTacToe: React.FC<PageProps> = () => {
         return null
     }
     return (<PageBody>
+        <BackButton />
         <GameBody>
             <Field>
                 {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((num) => <Pile key={num} id={num} setPileValue={setPileValue} isMyTurn={isMyTurn} endMyTurn={() => setIsMyTurn(false)} aIMoveId={aIMoveId}></Pile>)}
@@ -70,6 +72,7 @@ position:relative;
 max-width:400px;
 border: 1px solid black;
 border-radius:30px;
+background:#fbebf7;
 margin:0px auto;
 padding:40px;
 display:flex;

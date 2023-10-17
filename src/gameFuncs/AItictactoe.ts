@@ -1,5 +1,3 @@
-import { match } from "assert"
-
 const winCombinationsPilesId = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
 
 //Horizontal /0,1,2/ /3,4,5/ /6,7,8/
@@ -11,9 +9,9 @@ export const makeMoveForNoughts = (allPileValues: (null | 'X' | 'O')[]) => {
     if (allCrossesId.length === 1) return moveToRandom(allPileValues)
     const allNoughtsId = findAllNoughtsId(allPileValues)
 
-    const myWinCombo = findComboForNoughtsWin(allCrossesId, allNoughtsId)
-    if (myWinCombo !== undefined) {
-        const move = myWinCombo.find((value) => !allNoughtsId.includes(value))
+    const AIWinCombo = findComboForNoughtsWin(allCrossesId, allNoughtsId)
+    if (AIWinCombo !== undefined) {
+        const move = AIWinCombo.find((value) => !allNoughtsId.includes(value))
         if (move || move === 0) return move
         if (!move) return null
     }
@@ -30,7 +28,8 @@ export const makeMoveForNoughts = (allPileValues: (null | 'X' | 'O')[]) => {
         if (move || move === 0) return move
         if (!move) return null
     } else {
-        return moveToRandom(allPileValues)
+        const random = moveToRandom(allPileValues)
+        return random
     }
     return null
 }

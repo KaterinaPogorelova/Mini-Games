@@ -14,6 +14,7 @@ export const WinMessage = ({ hasWon, gameLink, numberleTargetNum, cardGameTries 
         {hasWon !== null && gameLink === '/tictactoe' && <MessageTitle>{hasWon ? 'You won!' : 'You lost...'}</MessageTitle>}
         {hasWon === null && gameLink === '/tictactoe' && <MessageTitle>{"Tie"}</MessageTitle>}
         {hasWon && gameLink === '/memoryCard' && <MessageAddInfo>{'You won in ' + cardGameTries + ' tries'}</MessageAddInfo>}
+        {hasWon && gameLink === '/numberle' && <MessageTitle>{hasWon ? 'You won!' : 'You lost...'}</MessageTitle>}
         {!hasWon && gameLink === '/numberle' && numberleTargetNum && <MessageAddInfo>{'The target number was ' + numberleTargetNum.join('')}</MessageAddInfo>}
         <MessageBtn href={gameLink}>Try again</MessageBtn>
         <MessageBtn href="/">Go Back</MessageBtn>
